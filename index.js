@@ -1,29 +1,24 @@
-function 내함수(x) {
-    var array = [];
-    array[0] = x;
-}
-내함수(123);
-function 클리닝함수(a) {
-    var 클리닝완료 = [];
-    a.forEach(function (b) {
-        if (typeof b === "string") {
-            클리닝완료.push(parseInt(b));
-        }
-        else {
-            클리닝완료.push(b);
-        }
-    });
-}
-console.log(클리닝함수([123, "3"]));
-function 만들함수(x) {
-    if (typeof x.subject === "string") {
-        return x.subject;
-    }
-    else if (Array.isArray(x.subject)) {
-        return x.subject[x.subject.length - 1];
-    }
-    else {
-        return "없스무리다.";
-    }
-}
-console.log(만들함수({ subject: ["english", "art"] }));
+// type alias 만드는 법
+var 동물 = { name: "kim", age: 20 };
+var 출생지역 = { region: "seoul" };
+출생지역.region = "busan";
+var 여친 = {
+    name: "엠버",
+};
+// extend 한다 이말임 Type alias & { name : string } 이런 것도 가능
+var position = { x: 10, y: 20 };
+var 테스트용변수 = {
+    size: 123,
+    position: [1, 2, 3],
+};
+var 테스트용변수2 = {
+    name: "kim",
+    phone: 123,
+    email: "abc@naver.com",
+};
+var 테스트용변수3 = {
+    name: "park",
+    email: "bbb@naver.com",
+    phone: 4444,
+    adult: true,
+};
