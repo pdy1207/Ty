@@ -1,68 +1,31 @@
-// type alias 만드는 법
+let 접니다: "대머리" | "솔로";
+접니다 = "대머리";
 
-type Animal = { name: string; age: number };
-let 동물: Animal = { name: "kim", age: 20 };
+function 함수입니다(a: "hello"): 1 | 0 {
+  return 1;
+}
+함수입니다("hello");
 
-const 출생지역 = { region: "seoul" };
+// Q. 가위 or 바위 or 보 중 1개 입력가능
+// 가위 or 바위 or 보 만 들어올 수 있는 array를 return 해야함
 
-출생지역.region = "busan";
+function 가위바위보(
+  멀낼건가: "가위" | "바위" | "보"
+): ("가위" | "바위" | "보")[] {
+  return ["가위"];
+}
+가위바위보("가위");
 
-// 이거를 못 바꾸게 막을 수 있음!
-
-type Girlfriend = {
-  //  readonly name: string;
-  //실수로 수정하면 에러발생!
-  // 단, 에러는 에디터 & 터미널에서만 존재...
-  name?: string; // ===  string | undefind
-};
-
-const 여친: Girlfriend = {
-  name: "엠버",
-};
-
-// 타입 합치기
-
-type Name = string;
-type Age = number;
-
-type Person = Name | Age;
-
-type PositionX = { x: number };
-type PositionY = { y: number };
-
-type NewType = PositionX & PositionY;
-// extend 한다 이말임 Type alias & { name : string } 이런 것도 가능
-
-let position: NewType = { x: 10, y: 20 };
-
-// ===
-
-type 만족하는타입 = { color?: string; size: number; position: number[] };
-let 테스트용변수: 만족하는타입 = {
-  size: 123,
-  position: [1, 2, 3],
-};
-
-type 만족하는타입2 = { name: string; phone: number; email?: string };
-
-let 테스트용변수2: 만족하는타입2 = {
+var 자료 = {
   name: "kim",
-  phone: 123,
-  email: "abc@naver.com",
-};
+} as const;
 
-type 만족하는타입3 = {
-  name: string;
-  email?: string;
-  phone: number;
-};
-type Adult = { adult: boolean };
+function 내함수(a: "kim") {}
+내함수(자료.name);
 
-type NewUser = 만족하는타입3 & Adult;
-
-let 테스트용변수3: NewUser = {
-  name: "park",
-  email: "bbb@naver.com",
-  phone: 4444,
-  adult: true,
-};
+// 1. object 만들 때 타입지정 확실히 하기.
+// 2. as 문법으로 타입을 숨기기
+// 3. as const 이상한 키워드 쓰기
+// 3-1. object value 값을 그대로 타입으로 지정해줌
+// 3-2. object 속성들에 모두 readonly 붙여줌 readonly라는건 마음대로 바꿀 수 없음!
+// 3-3. object 자료를 완전히 잠가놓고 싶으면 as const 써보기!
