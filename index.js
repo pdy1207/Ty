@@ -33,3 +33,5 @@ var 어레이 = [4, 2, 1];
 var 어레이 = new Array(4, 2, 1);
 어레이.sort();
 // Array.prototype <- 여기에 있기 때문에
+
+Array.prototype.함수 = function () {};
