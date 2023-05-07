@@ -1,63 +1,22 @@
-var Person123 = /** @class */ (function () {
-    function Person123(a) {
-        this.name = a;
+var person = { student: true, age: 20 };
+function 함수(_a) {
+    var student = _a.student, age = _a.age;
+    console.log(student, age);
+}
+함수({ student: true, age: 20 });
+function 함수2(animal) {
+    if ("swim" in animal) {
+        animal.swim;
     }
-    Person123.prototype.함수 = function (a) {
-        console.log("넌 몇살이니?" + a);
-    };
-    return Person123;
-}());
-var 사람1 = new Person123("qewr");
-// ==
-// class Test {
-//   name: string;
-//   constructor() {
-//     this.name = "kim";
-//   }
-// }
-var Test = /** @class */ (function () {
-    function Test(a) {
-        if (a === void 0) { a = "kim"; }
-        this.name = a;
-        this.age = 20;
+}
+// in키워드로 objectnarrowing 가능 속성명 in 오브젝트자료
+// instanceof 연산자로 object narrowing 가능
+var 날짜 = new Date();
+if (날짜 instanceof Date) {
+}
+function 함수(x) {
+    if (x.wheel == "4개") {
     }
-    return Test;
-}());
-var Test2 = /** @class */ (function () {
-    function Test2() {
-    }
-    Test2.prototype.add = function (숫자) {
-        console.log(숫자 + 1);
-    };
-    return Test2;
-}());
-var 네모 = {
-    color: "red",
-    width: 100,
-};
-var 학생 = {
-    name: "kim",
-};
-var 선생 = {
-    name: "kim",
-    age: 20,
-};
-var 상품 = {
-    brand: "Samsung",
-    serialNumber: 1360,
-    model: ["TV", "phone"],
-};
-var 장바구니 = [
-    { product: "청소기", price: 7000 },
-    { product: "삼다수", price: 800 },
-];
-var 장바구니2 = [{ product: "청소기", price: 7000, card: false }];
-var 오브젝트2 = {
-    plus: function (a, b) {
-        return a + b;
-    },
-    minus: function (a, b) {
-        return a - b;
-    },
-};
-// 함수타입은 ()=>{}
+}
+// 비슷한 object 타입일 경우, literal type 강제로 만들어두면 나중에 도움됨
+// object 타입마다 literal type 만들어두면 narrowing 편리하다!

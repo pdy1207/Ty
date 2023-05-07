@@ -1,114 +1,43 @@
-class Person123 {
-  name: string;
-  constructor(a: string) {
-    this.name = a;
-  }
+let person = { student: true, age: 20 };
 
-  함수(a: number) {
-    console.log("넌 몇살이니?" + a);
-  }
+function 함수({ student, age }: { student: boolean; age: number }) {
+  console.log(student, age);
 }
-let 사람1 = new Person123("qewr");
 
-// ==
+함수({ student: true, age: 20 });
 
-// class Test {
-//   name: string;
-//   constructor() {
-//     this.name = "kim";
-//   }
-// }
+// Narrowing 할 수 있는 방법 더 알아보기
 
-class Test {
-  name;
-  age;
-  constructor(a = "kim") {
-    this.name = a;
-    this.age = 20;
+type Fish = { swim: string };
+type Bird = { fly: string };
+
+function 함수2(animal: Fish | Bird) {
+  if ("swim" in animal) {
+    animal.swim;
   }
 }
+// in키워드로 objectnarrowing 가능 속성명 in 오브젝트자료
 
-class Test2 {
-  add(숫자): void {
-    console.log(숫자 + 1);
+// instanceof 연산자로 object narrowing 가능
+
+let 날짜 = new Date();
+
+if (날짜 instanceof Date) {
+}
+
+type Car = {
+  wheel: "4개";
+  color: string;
+};
+
+type Bike = {
+  wheel: "2개";
+  color: string;
+};
+
+function 함수(x: Car | Bike) {
+  if (x.wheel == "4개") {
   }
 }
-
-// ==
-
-// type Square = {
-//   color: String;
-//   width: number;
-// };
-
-interface Square {
-  color: String;
-  width: number;
-}
-
-let 네모: Square = {
-  color: "red",
-  width: 100,
-};
-
-type Animal2 = { name: string };
-type Cat = { age: number } & Animal2;
-
-interface Student {
-  name: string;
-}
-
-interface Teacher extends Student {
-  age: number;
-}
-
-let 학생: Student = {
-  name: "kim",
-};
-
-let 선생: Teacher = {
-  name: "kim",
-  age: 20,
-};
-
-// ==
-interface Product {
-  brand: string;
-  serialNumber: number;
-  model: string[];
-}
-
-let 상품: Product = {
-  brand: "Samsung",
-  serialNumber: 1360,
-  model: ["TV", "phone"],
-};
-
-interface Cart {
-  product: string;
-  price: number;
-}
-
-let 장바구니: Cart[] = [
-  { product: "청소기", price: 7000 },
-  { product: "삼다수", price: 800 },
-];
-interface Cart2 extends Cart {
-  card: boolean;
-}
-let 장바구니2: Cart2[] = [{ product: "청소기", price: 7000, card: false }];
-
-interface MathObj {
-  plus: (a: number, b: number) => number;
-  minus: (a: number, b: number) => number;
-}
-
-let 오브젝트2: MathObj = {
-  plus(a, b) {
-    return a + b;
-  },
-  minus(a, b) {
-    return a - b;
-  },
-};
-// 함수타입은 ()=>{}
+// 비슷한 object 타입일 경우, literal type 강제로 만들어두면 나중에 도움됨
+// object 타입마다 literal type 만들어두면 narrowing 편리하다!
