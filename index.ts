@@ -1,16 +1,19 @@
-function 함수(parameter: string) {
-  if (typeof parameter == "string") {
-    console.log(parameter);
-  } else {
-  }
+// class User123 {
+//   name: string;
+//   private familyName: string = "kim";
+//   constructor(a) {
+//     this.name = a + this.familyName;
+//   }
+//   이름변경함수() {
+//     this.familyName = "park";
+//   }
+// }
+// let 유저1 = new User("park");
+// 유저1.이름변경함수();
+
+class Persona {
+  constructor(public name) {}
 }
 
-//never 타입 등장하는 경우
-
-// 1. 뭔가 이상한 narrowing
-
-// 2. 어떤 함수 표현식은 return 타입이 자동으로 never
-
-let 하암수 = function () {
-  throw new Error();
-};
+let 자식 = new Persona("kim");
+console.log(자식); // kim
