@@ -1,19 +1,7 @@
-// class User123 {
-//   name: string;
-//   private familyName: string = "kim";
-//   constructor(a) {
-//     this.name = a + this.familyName;
-//   }
-//   이름변경함수() {
-//     this.familyName = "park";
-//   }
-// }
-// let 유저1 = new User("park");
-// 유저1.이름변경함수();
-
-class Persona {
-  constructor(public name) {}
+class TestUser {
+  static x = 10;
+  y = 20;
 }
 
-let 자식 = new Persona("kim");
-console.log(자식); // kim
+let 자식임 = new TestUser();
+console.log(자식);
