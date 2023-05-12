@@ -14,8 +14,8 @@ var 미친링크 = document.querySelectorAll(".naver");
 // 일반 for문
 var 링크 = document.querySelectorAll(".naver");
 for (var i = 0; i < 3; i++) {
-    var a = 링크[i];
-    if (a instanceof HTMLAnchorElement) {
-        a.href = "https://kakao.com";
+    var a_1 = 링크[i];
+    if (a_1 instanceof HTMLAnchorElement) {
+        a_1.href = "https://kakao.com";
     }
 }
