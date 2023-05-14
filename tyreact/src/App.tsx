@@ -1,22 +1,24 @@
-import { useState } from "react";
-
-let a: string = "kim";
-
-let 박스: JSX.Element = <div></div>;
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch } from "redux";
+import { RootState } from "./index";
 
 function App() {
-  let [user, setUser] = useState("park");
+  const 꺼내온거 = useSelector((state: RootState) => state);
+  const dispatch: Dispatch = useDispatch();
 
   return (
     <div className="App">
-      <h4>안녕하세요</h4>
-      <Profile name="me" />
+      {꺼내온거.counter1.count}
+      {꺼내온거.counter1.user}
+      <button
+        onClick={() => {
+          dispatch({ type: "증가" });
+        }}
+      >
+        버튼
+      </button>
+      <Profile name="kim"></Profile>
     </div>
   );
 }
-
-function Profile(props: { name: string }): JSX.Element {
-  return <div>{props.name} 프로필입니다.</div>;
-}
-
-export default App;
