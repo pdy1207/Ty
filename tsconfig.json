@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "strictNullChecks": true // null 타입이 들어올때 엄격하게 체크해달라
+    "strictNullChecks": true, // null 타입이 들어올때 엄격하게 체크해달라
+    "declaration": true, // 이러면 ts파일마다 d.ts파일 자동생성
+    "typeRoots": ["./types"] // 여기 있는 타입들은 글로벌하게 이용가능
   }
 }
