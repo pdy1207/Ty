@@ -1,12 +1,8 @@
-type Benz = {
-  color: boolean;
-  model: boolean;
-  price: boolean | number;
-};
-// 전부다 string으로 바꾸려면?
+type Age123<T> = T extends string ? string : unknown;
+let a123: Age123<string>;
 
-type TypeChanger<MyType> = {
-  [key in keyof MyType]: string;
-};
+// 함수를 넣으면 함수의 return 타입만 뽑고싶다
 
-type 새로운타입 = TypeChanger<Benz>;
+type 타입추출<T> = T extends (() => infer R)[] ? R : unknown;
+
+type a = 타입추출<() => void>;

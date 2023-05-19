@@ -1,9 +1,4 @@
-type Benz = {
-    color: boolean;
-    model: boolean;
-    price: boolean | number;
-};
-type TypeChanger<MyType> = {
-    [key in keyof MyType]: string;
-};
-type 새로운타입 = TypeChanger<Benz>;
+type Age123<T> = T extends string ? string : unknown;
+declare let a123: Age123<string>;
+type 타입추출<T> = T extends (() => infer R)[] ? R : unknown;
+type a = 타입추출<() => void>;
